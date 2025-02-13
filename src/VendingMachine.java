@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class VendingMachine {
     public static void main(String[] args) throws Exception {
     // Snacks:
@@ -9,7 +10,6 @@ public class VendingMachine {
         System.out.println("What would you like");
         Scanner input = new Scanner(System.in);
         int in = input.nextInt();
-
         
 
     }
