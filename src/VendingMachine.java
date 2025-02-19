@@ -18,7 +18,6 @@ public class VendingMachine {
         double[] orderArray = new double[99];
         int h = 0;
         double finalAnswer = 0;
-
         double change = 0;
 
         String[] letterArray = {"A", "B", "C", "D", "E"};
