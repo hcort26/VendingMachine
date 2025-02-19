@@ -30,6 +30,7 @@ public class VendingMachine {
             {"Pop-Tart", "Cheez-its", "Granola Bar", "M&Ms", "Skittles"},
             {"Oreo Pack", "Hershey Bar", "Sour Patch Kids", "Snickers Bar", "Twix Bar"},
         };
+        
         double[][] priceLayout = {
             {1.50, 1.25, 1.50, 1.25, 1.25},
             {1.50, 1.50, 1.50, 1.50, 1.50},
