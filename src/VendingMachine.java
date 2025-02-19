@@ -30,7 +30,6 @@ public class VendingMachine {
             {"Pop-Tart", "Cheez-its", "Granola Bar", "M&Ms", "Skittles"},
             {"Oreo Pack", "Hershey Bar", "Sour Patch Kids", "Snickers Bar", "Twix Bar"},
         };
-
         double[][] priceLayout = {
             {1.50, 1.25, 1.50, 1.25, 1.25},
             {1.50, 1.50, 1.50, 1.50, 1.50},
@@ -87,7 +86,6 @@ public class VendingMachine {
                         }
                         k = 0;
                         System.out.print("| ");
-
                         break;
                     }
                     j++;
@@ -154,7 +152,6 @@ public class VendingMachine {
         
                 while (true) {
                     bill = input.nextInt();
-                    if (bill == 0) break; 
                     if (bill == 1) {
                         totalMoney += bill;
                         System.out.println("Total inserted: $" + formatter.format(totalMoney));
@@ -166,7 +163,6 @@ public class VendingMachine {
                         System.out.println("Only $1 bills are accepted, use the '1' key to place bills inside");
                     }
                 }
-        
                 // Check if user has enough money
 
             } else if (in.length() == 2) {
@@ -225,4 +221,3 @@ public class VendingMachine {
             h.printStackTrace();
         }
     }
-}
