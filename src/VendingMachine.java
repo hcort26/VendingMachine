@@ -41,6 +41,8 @@ public class VendingMachine {
 
         NumberFormat formatter = new DecimalFormat("#0.00");
 
+        /*Part 1: Arrays and try/catch to set up the base of the program, by Henry*/
+
         while (!done) {
             while (i < 5) {
                 while (j < 5) {
@@ -124,6 +126,7 @@ public class VendingMachine {
                 System.out.println("");
                 i++;
             }
+            /*Part 2: Prints the display of items, by Daniel*/
         
             System.out.println("Select what would you like, then type 'exit' to finish.");
             String in = input.nextLine().toUpperCase();
@@ -165,6 +168,7 @@ public class VendingMachine {
                     }
                 }
                 // Check if user has enough money
+                /*Part 3: What to do based on what's inputted, by Henry*/
 
             } else if (in.length() == 2) {
                 if (in.charAt(0) == 'A') {
@@ -204,6 +208,8 @@ public class VendingMachine {
                 j = 0;
                 System.out.println("");
                 System.out.println("---------------");
+
+                /*Part 4: Calculating data, by Daniel*/
             }
         }
         
