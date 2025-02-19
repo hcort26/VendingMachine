@@ -129,6 +129,10 @@ public class VendingMachine {
             //System.out.println(in.length());
             //System.out.println(in);
 
+            if (in.length() < 2) {
+                in = "exit";
+            }
+
             if ("EXIT".equals(in)) {
                 done = true;
                 while (h >= 0) {
@@ -149,7 +153,7 @@ public class VendingMachine {
                         totalMoney += bill;
                         System.out.println("Total inserted: $" + formatter.format(totalMoney));
                     } else {
-                        System.out.println("Only $1 bills are accepted.");
+                        System.out.println("Only $1 bills are accepted, use the '1' key to place bills inside");
                     }
                 }
         
@@ -166,7 +170,7 @@ public class VendingMachine {
                     }
                 }
                 //System.out.println("Thank you for purchasing a snack!");
-            } else if (in.length() <= 2) {
+            } else if (in.length() == 2) {
                 if (in.charAt(0) == 'A') {
                     j = 0;
                 } else
@@ -193,7 +197,7 @@ public class VendingMachine {
                 i = i - 1;
                 // System.out.println(j);
                 // System.out.println(i);
-                //System.out.println(priceLayout[j][i]);
+                // System.out.println(priceLayout[j][i]);
 
                 orderArray[h] = priceLayout[j][i];
                 h++;
