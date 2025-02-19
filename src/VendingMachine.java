@@ -19,6 +19,8 @@ public class VendingMachine {
         int h = 0;
         double finalAnswer = 0;
 
+        double change = 0;
+
         String[] letterArray = {"A", "B", "C", "D", "E"};
 
         String[][] vendingLayout = {
@@ -135,14 +137,18 @@ public class VendingMachine {
 
             if ("EXIT".equals(in)) {
                 done = true;
+                if (finalAnswer <= 0 && orderArray[0] == 0) {
+                    System.out.println("Your total is $" + formatter.format(finalAnswer));
+                    System.out.println("Your change is $" + formatter.format(change));
+                    System.out.println("Goodbye!");
+                    break;
+                }
                 while (h >= 0) {
                     finalAnswer = finalAnswer + orderArray[h];
                     h--;
                 }
-                System.out.println("Your total is $" + finalAnswer);
-
-
-                System.out.println("Insert money ($1 bills only). Enter 0 when finished:");
+                System.out.println("Your total is $" + formatter.format(finalAnswer));
+                System.out.println("Please Insert money ($1 bills accepted only)");
                 int totalMoney = 0;
                 int bill;
         
@@ -152,24 +158,17 @@ public class VendingMachine {
                     if (bill == 1) {
                         totalMoney += bill;
                         System.out.println("Total inserted: $" + formatter.format(totalMoney));
+                        if (totalMoney >= finalAnswer) {
+                            change = totalMoney - finalAnswer;
+                            System.out.println("Thank you for your purchase! Your change is $" + formatter.format(change));
+                        }
                     } else {
                         System.out.println("Only $1 bills are accepted, use the '1' key to place bills inside");
                     }
                 }
         
                 // Check if user has enough money
-                done = false;
-                while (!done) {
-                    if (totalMoney >= finalAnswer) {
-                        double change = totalMoney - finalAnswer;
-                        System.out.println("Thank you for your purchase! Your change is $" + formatter.format(change));
-                        done = true;
-                    } else {
-                        System.out.println("Insufficient funds. Please insert more money.");
-                        break;
-                    }
-                }
-                //System.out.println("Thank you for purchasing a snack!");
+
             } else if (in.length() == 2) {
                 if (in.charAt(0) == 'A') {
                     j = 0;
@@ -186,7 +185,8 @@ public class VendingMachine {
                 if (in.charAt(0) == 'E') {
                     j = 4;
                 } else {
-                    j = 4;
+                    //j = 4;
+                    in = "exit";
                 }
 
                 if (in.charAt(1) == 1 || in.charAt(1) == 2 || in.charAt(1) == 3 || in.charAt(1) == 4 || in.charAt(1) == 5) {
@@ -198,9 +198,11 @@ public class VendingMachine {
                 // System.out.println(j);
                 // System.out.println(i);
                 // System.out.println(priceLayout[j][i]);
-
-                orderArray[h] = priceLayout[j][i];
-                h++;
+                
+                if (in.length() == 2) {
+                    orderArray[h] = priceLayout[j][i];
+                    h++;
+                }
                 i = 0;
                 j = 0;
                 System.out.println("");
